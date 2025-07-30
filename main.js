@@ -1,8 +1,9 @@
 console.log("hi");
 
-//
+// markup da inserire testato su HTML
 /*
- <div class="col">
+
+<div class="col">
     <div class="card bg-dark" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-4">
@@ -19,7 +20,6 @@ console.log("hi");
     </div>
 </div>
 
-
 */
 
 // array copiato dallo script su assets
@@ -28,37 +28,37 @@ const teamMembers = [
         name: "Marco Bianchi",
         role: "Designer",
         email: "marcobianchi@team.com",
-        img: "img/male1.png"
+        img: "assets/img/male1.png"
     },
     {
         name: "Laura Rossi",
         role: "Front-end Developer",
         email: "laurarossi@team.com",
-        img: "img/female1.png"
+        img: "assets/img/female1.png"
     },
     {
         name: "Giorgio Verdi",
         role: "Back-end Developer",
         email: "giorgioverdi@team.com",
-        img: "img/male2.png"
+        img: "assets/img/male2.png"
     },
     {
         name: "Marta Ipsum",
         role: "SEO Specialist",
         email: "martarossi@team.com",
-        img: "img/female2.png"
+        img: "assets/img/female2.png"
     },
     {
         name: "Roberto Lorem",
         role: "SEO Specialist",
         email: "robertolorem@team.com",
-        img: "img/male3.png"
+        img: "assets/img/male3.png"
     },
     {
         name: "Daniela Amet",
         role: "Analyst",
         email: "danielaamet@team.com",
-        img: "img/female3.png"
+        img: "assets/img/female3.png"
     }
 ];
 
@@ -85,4 +85,84 @@ Buon divertimento e confermate lettura come al solito :babyyoda:
 
 
 // selezionare nodi della Dom
-// 
+
+const rowEl = document.getElementById("my-team")
+
+
+
+// ciclo all'interno dell'array e
+
+for (let i = 0; i < teamMembers.length; i++) {
+    const member = teamMembers[i];
+
+    /*  // esempio dei nomi che vedo dentro il mio array di oggetto
+     console.log(member.name); */
+
+    // recupero i dati ad ogni iterazioen che andranno 
+    // a popolare il mio markup (funzione)
+    // creare variabili per le proprietà -> destrutturo
+    const { name, role, email, img } = member
+
+    /* // esempio sempre di nomi ma con constante derivata dalla destrutturazione
+    console.log(name); */
+
+    // aggiungere i dati alla "nuova Dom" 
+    // constante per il markup nuovo
+    /* const cardMarkupString = `
+    <div class="col">
+    <div class="card bg-dark" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-4">
+                <img src="${img}" class="img-fluid rounded-start" alt="...">
+            </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">${name}</h3>
+                        <p class="card-text text-white">${role}</p>
+                        <p class="card-text"><small class="text-white">${email}</small></p> mins
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    `
+    // verifico che il mio markup sia popolato bene
+    console.log(cardMarkupString);
+
+    // rowEl.insertAdjacentHTML("beforeend", cardMarkupString) */
+
+    // faccio con la funzione dopo aver destrutturato
+
+    const cardMarkupString = generateCardMarkup(name, role, email, img)
+
+    rowEl.insertAdjacentHTML("beforeend", cardMarkupString)
+
+}
+
+
+
+
+
+
+// la mia funzione per generare markup
+
+function generateCardMarkup(name, role, email, img) {
+    return `
+    <div class="col">
+    <div class="card bg-dark" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-4">
+                <img src="${img}" class="img-fluid rounded-start" alt="...">
+            </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">${name}</h3>
+                        <p class="card-text text-white">${role}</p>
+                        <p class="card-text"><small class="text-white">${email}</small></p> mins
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    `
+}

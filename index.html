@@ -33,6 +33,41 @@
             </div>
         </div>
 
+        <!-- aggiungo il form per aggiungere nuove card -->
+
+        <div class="container py-3">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelper"
+                        placeholder="Type a name" />
+                    <small id="nameHelper" class="form-text text-muted">Type the name member</small>
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control" name="role" id="role" aria-describedby="roleHelper"
+                        placeholder="Type a role" />
+                    <small id="roleHelper" class="form-text text-muted">Type the role member</small>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelper"
+                        placeholder="Type a email" />
+                    <small id="emailHelper" class="form-text text-muted">Type the email member</small>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" class="form-control" name="image" id="image" aria-describedby="imageHelper"
+                        placeholder="Type a url img" />
+                    <small id="imageHelper" class="form-text text-muted">Type a url img</small>
+                </div>
+                <button type="submit" class="btn btn-dark">
+                    Submit
+                </button>
+
+            </form>
+        </div>
+
         <!-- star card -->
         <div class="container">
             <div id="my-team" class="row row-cols-1 row-cols-md-3 g-3">
